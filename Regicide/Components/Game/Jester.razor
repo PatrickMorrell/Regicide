@@ -1,0 +1,65 @@
+﻿@using System.Timers
+@inject TavernService TavernService
+
+<div class="m-1 @GetOrientation()" @onclick="HitJester">
+	@if (hit < 4)
+	{
+		<img class="icon" src="./img/Jester.png" />
+	}
+	else
+	{
+		<img class="icon" src="./img/Smoke.png" />
+	}
+</div>
+
+@code {
+	private int hit;
+
+	private readonly Timer _hitTimer = new(3000)
+	{
+		AutoReset = false // Fire only once
+	};
+
+	protected override async Task OnInitializedAsync()
+	{
+		_hitTimer.Elapsed += (_, _) =>
+		{
+			hit = 0;
+			StateHasChanged();
+		};
+	}
+
+	private void HitJester()
+	{
+		hit++;
+
+		if (hit == 4)
+		{
+			_hitTimer.Stop();
+			TavernService.RedrawHand();
+			return;
+		}
+
+		if (hit < 4)
+		{
+			_hitTimer.Stop();
+			_hitTimer.Start();
+		}
+	}
+
+	private string GetOrientation()
+	{
+		switch (hit)
+		{
+			case 1:
+				return "rotate-90";
+			case 2:
+				return "rotate-180";
+			case 3:
+				return "rotate-270";
+			default:
+				return "";
+		}
+	}
+
+}

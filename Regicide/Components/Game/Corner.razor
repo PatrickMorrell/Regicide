@@ -1,0 +1,23 @@
+﻿<div class="d-flex flex-column align-items-center mx-1">
+	<strong>@GetDisplayValue(PlayingCard.Value)</strong>
+	<img class="suit-small" src="./img/@(PlayingCard.Suit).png" />
+</div>
+
+@code {
+	[Parameter]
+	public required PlayingCard PlayingCard { get; set; }
+
+	private string GetDisplayValue(string value)
+	{
+		switch (value)
+		{
+			case Face.Ace:
+			case Face.Jack:
+			case Face.Queen:
+			case Face.King:
+				return value[0].ToString();
+			default:
+				return value;
+		}
+	}
+}

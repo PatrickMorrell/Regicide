@@ -1,0 +1,54 @@
+﻿@implements IDisposable
+@inject StandardService StandardService
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+<div class="d-flex align-items-center">
+
+	<Jester></Jester>
+	<Jester></Jester>
+
+	<div class="ms-5 me-2">
+		<img class="icon" src="./img/Tavern.png" />
+	</div>
+
+	<div class="d-flex">
+		@for (int i = 0; i < (TavernService.GetArms() / 3); i++)
+		{
+			<div class="m-1">
+				<img class="icon" src="./img/SwordsAndShield.png" />
+			</div>
+		}
+		@switch ((TavernService.GetArms() % 3))
+		{
+			case 1:
+				<div class="m-1">
+					<img class="icon" src="./img/Shield.png" />
+				</div>
+				break;
+			case 2:
+				<div class="m-1">
+					<img class="icon" src="./img/SwordAndShield.png" />
+				</div>
+				break;
+
+		}
+	</div>
+</div>
+
+@code {
+	protected override async Task OnInitializedAsync()
+	{
+		TavernService.Updated += Refresh;
+	}
+
+	private void Refresh()
+	{
+		StateHasChanged();
+	}
+
+	public void Dispose()
+	{
+		TavernService.Updated -= Refresh;
+	}
+}

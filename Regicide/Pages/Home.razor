@@ -1,0 +1,20 @@
+﻿@page "/"
+@inject StandardService StandardService
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+@if (TavernService.Hand.Cards.Count == 0 || CastleService.CurrentEnemy == null) {
+	<EndGame />
+}
+else
+{
+	<Game></Game>
+}
+
+@code {
+	protected override void OnInitialized()
+	{
+		StandardService.BuildStandardDeck();
+		TavernService.InitializeGame();
+	}
+}

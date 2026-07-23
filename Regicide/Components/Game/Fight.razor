@@ -1,0 +1,54 @@
+@implements IDisposable
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+<div class="d-flex align-items-center">
+	<div class="mx-2">
+		<FightTrack />
+	</div>
+	<Card PlayingCard="CastleService.CurrentEnemy"></Card>
+	<div class="m-2">
+		<h5 class="m-1">
+			<strong>
+				Health
+				@(CastleService.CurrentEnemy.Health - TavernService.TotalAttack())
+			</strong>
+		</h5>
+		<h5 class="m-1">
+			<strong>
+				Strength
+				@TavernService.GetDamageDealt()
+			</strong>
+		</h5>
+	</div>
+		<div class="d-flex">
+			@foreach (var attack in TavernService.Fight)
+			{
+				<div class="d-flex mx-1">
+					@foreach (var card in attack)
+					{
+						<div class="mx-1">
+							<Card PlayingCard="card"></Card>
+						</div>
+					}
+				</div>
+			}
+		</div>
+</div>
+
+@code {
+	protected override async Task OnInitializedAsync()
+	{
+		TavernService.Updated += Refresh;
+	}
+
+	private void Refresh()
+	{
+		StateHasChanged();
+	}
+
+	public void Dispose()
+	{
+		TavernService.Updated -= Refresh;
+	}
+}

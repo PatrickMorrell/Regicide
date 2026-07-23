@@ -1,0 +1,73 @@
+@implements IDisposable
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+<div class="d-flex align-items-center">
+	<div class="d-flex flex-wrap">
+		@foreach (var card in TavernService.Hand.Cards)
+		{
+			<div class="m-1" @onclick="() => UseCard(card)">
+				<Card PlayingCard="card"
+					  Disabled="@(!TavernService.CanPlay(card))"
+					  Powerless="card.Suit == CastleService.CurrentEnemy.Suit"
+					  Damage="TavernService.Turn == Character.Enemy"></Card>
+			</div>
+		}
+	</div>
+
+	@if (TavernService.ShowConfirmPlay)
+	{
+		<div class="m-1" @onclick="TavernService.ConfirmPlay">
+			<img class="icon" src="./img/Sword.png" />
+		</div>
+	}
+	@if (TavernService.ShowConfirmDamage)
+	{
+		<div class="m-1" @onclick="TavernService.ConfirmLoss">
+			<img class="icon" src="./img/Skull.png" />
+		</div>
+	}
+</div>
+
+@code {
+	protected override async Task OnInitializedAsync()
+	{
+		TavernService.Updated += Refresh;
+	}
+
+	private void Refresh()
+	{
+		StateHasChanged();
+	}
+
+	private void UseCard(PlayingCard card)
+	{
+		if (TavernService.Turn == Character.Hero)
+		{
+			if (card.Active)
+			{
+				TavernService.UndoPlay(card);
+			}
+			else
+			{
+				TavernService.PlayCard(card);
+			}
+		}
+		else
+		{
+			if (card.Active)
+			{
+				TavernService.UndoLoss(card);
+			}
+			else
+			{
+				TavernService.LoseCard(card);
+			}
+		}
+	}
+
+	public void Dispose()
+	{
+		TavernService.Updated -= Refresh;
+	}
+}

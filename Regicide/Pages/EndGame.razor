@@ -1,0 +1,32 @@
+@inject StandardService StandardService
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+@if (TavernService.Hand.Cards.Count == 0)
+{
+	<div class="d-flex flex-column align-items-center m-5" @onclick="TavernService.InitializeGame">
+		<img class="image" src="./img/Defeat.png" />
+		<h1><strong>Defeat</strong></h1>
+	</div>
+}
+else
+{
+	<div class="d-flex flex-column align-items-center m-5" @onclick="TavernService.InitializeGame">
+		<img class="image" src="./img/Victory.png" />
+		<div class="d-flex align-items-center">
+			@switch (TavernService.JestersUsed)
+			{
+				case 0:
+					<img class="icon" src="./img/Gold.png" />
+					break;
+				case 1:
+					<img class="icon" src="./img/Silver.png" />
+					break;
+				case 2:
+					<img class="icon" src="./img/Bronze.png" />
+					break;
+			}
+			<div class="fs-1"><strong>Victory</strong></div>
+		</div>
+	</div>
+}

@@ -1,0 +1,42 @@
+﻿@inject CastleService CastleService
+
+<div class="playing-card @(PlayingCard.Active ? "mt-1" : "") @(Damage ? "damage" : "")">
+	@if (Disabled)
+	{
+		<div class="disabled"></div>
+	}
+	<div class="d-flex justify-content-between h-100">
+		<Corner PlayingCard="PlayingCard"></Corner>
+		<div class="d-flex align-items-center justify-content-center">
+			<div class="positon-relative">
+				<img class="suit position-absolute top-50 start-50 translate-middle" src="./img/@(PlayingCard.Suit).png" />
+				@if (Powerless)
+				{
+					<div class="position-absolute top-50 start-50 translate-middle opacity-75">
+						<img class="icon" src="./img/Cross.png" />
+					</div>
+				}
+			</div>
+		</div>
+		<div class="rotate-180">
+			<Corner PlayingCard="PlayingCard"></Corner>
+		</div>
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public required PlayingCard PlayingCard { get; set; }
+
+	[Parameter]
+	public string Size { get; set; } = "standard";
+
+	[Parameter]
+	public bool Disabled { get; set; }
+
+	[Parameter]
+	public bool Powerless { get; set; }
+
+	[Parameter]
+	public bool Damage { get; set; }
+}

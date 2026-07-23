@@ -1,0 +1,34 @@
+@implements IDisposable
+@inject StandardService StandardService
+@inject CastleService CastleService
+@inject TavernService TavernService
+
+<div class="d-flex flex-column">
+	@foreach (var suit in StandardService.Suits)
+	{
+		<img class="suit @(IsDefeated(suit) ? "opacity-50" : "")" src="./img/@(suit).png" />	
+	}
+</div>
+
+@code {
+	protected override async Task OnInitializedAsync()
+	{
+		TavernService.Updated += Refresh;
+	}
+
+	private void Refresh()
+	{
+		StateHasChanged();
+	}
+
+	private bool IsDefeated(Suit suit)
+	{
+		var enemy = CastleService.CurrentEnemy.Value;
+		return CastleService.CastleDeck.Cards.Count(c => c.Value.StringEquals(enemy) && c.Suit == suit) == 0;
+	}
+
+	public void Dispose()
+	{
+		TavernService.Updated -= Refresh;
+	}
+}
