@@ -26,7 +26,7 @@ jobs:
 
       - name: Update base href
         run: sed -i 's/<base href="\/" \/>/<base
-          href="https:\/\/patrickmorrell.github.io\/Corona\/" \/>/g'
+          href="https:\/\/patrickmorrell.github.io\/Regicide\/" \/>/g'
           release/wwwroot/index.html
 
       - name: Add .nojekyll file
