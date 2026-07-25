@@ -41,6 +41,7 @@ public class TavernService(StandardService standardService, CastleService castle
 			BuildHand();
 		}
 	}
+
 	public void InitializeGame()
 	{
 		Turn = Character.Hero;
