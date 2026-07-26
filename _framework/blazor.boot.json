@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Regicide",
   "resources": {
-    "hash": "sha256-bIbR5gdceRSYRwtGgr+Uw32X4DtYn+SexZL+TBh5N4g=",
+    "hash": "sha256-KDnFDlxGeEm0oxyFFdJpZoifoYUxAsgqQtXq5kvjFd8=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.6mw20oh13h.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.sxfdi1rlxf.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
@@ -40,7 +40,7 @@
       "System.Threading.kz1xg6b1zt.wasm": "System.Threading.wasm",
       "System.v2bpr4wvug.wasm": "System.wasm",
       "System.Private.CoreLib.1gqermetbp.wasm": "System.Private.CoreLib.wasm",
-      "Regicide.rhojqn63zl.wasm": "Regicide.wasm",
+      "Regicide.u2ec9ktgdo.wasm": "Regicide.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.mf92lzu2d1.js": "dotnet.native.js",
       "dotnet.native.6sm8j8phll.wasm": "dotnet.native.wasm",
@@ -103,7 +103,7 @@
       "System.Text.RegularExpressions.vmxr9zqpk1.wasm": "sha256-B9hS8DvRPE4xvO/CZFWk0VaqpGb+Ut3r/iwmpPj5CFY=",
       "System.Threading.kz1xg6b1zt.wasm": "sha256-UGB8YJJufJFWDxfdW4Fd5rOlFUdaThTtqJ7rgVXWA6A=",
       "System.v2bpr4wvug.wasm": "sha256-V0+qqJsDHNUBCJjD4bkeDVr+f+Orz+wNldNNIxrsd+4=",
-      "Regicide.rhojqn63zl.wasm": "sha256-vzhJSboi/c4+Q5fYMRcmtJNYJQyWWCUnaxTu4ltrnis="
+      "Regicide.u2ec9ktgdo.wasm": "sha256-RhtKyOgFLscaZrtuifFmd0AE9qkMEw7oXTrpQOnt2ZQ="
     }
   },
   "cacheBootResources": true,
