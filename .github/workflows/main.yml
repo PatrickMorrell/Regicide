@@ -20,7 +20,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 10
+          dotnet-version: 9
 
       - name: Publish .NET Project
         run: dotnet publish -c Release -o release --nologo
