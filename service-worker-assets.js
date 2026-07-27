@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "G2VFo7Y0",
+  "version": "8m859mI7",
   "assets": [
     {
-      "hash": "sha256-1RYrIoR13x0Bqm/6uyP397mNYufl8T2GMGfY1m8tpTg=",
+      "hash": "sha256-DdSrnzFjM8yTeDhRxP5WDBQonm1mVWqAQ14qCPwdkJo=",
       "url": "Regicide.styles.css"
     },
     {
@@ -62,8 +62,8 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.JSInterop.mnwds181lv.wasm"
     },
     {
-      "hash": "sha256-R4skSeGAfbVttoj+J4v51cdB/Zu94XjCwk8xWp7g5dc=",
-      "url": "_framework/Regicide.v2m2n66wvd.wasm"
+      "hash": "sha256-k1sJfAD8UE3IPDnYc+3x4Q99LPIG3+nUAtucn7IC/0Q=",
+      "url": "_framework/Regicide.hb5idv3i11.wasm"
     },
     {
       "hash": "sha256-PTjpPgKw3Eko/N0G26eVWtOsxuml2A6LEMbKL7CXR20=",
@@ -170,6 +170,10 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.w3qd1tpl0e.js"
     },
     {
+      "hash": "sha256-ZQTDDiO+fv1mK/LgUHbrCANgP900DRQGkdk289Gmtns=",
+      "url": "_framework/dotnet.lgth5gjvor.js"
+    },
+    {
       "hash": "sha256-gQbHHzCnWx8iDOC65EKbql7bEltJkfao7lmkAbIRajw=",
       "url": "_framework/dotnet.native.puryxhmhq9.js"
     },
@@ -180,10 +184,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-SOUHEQ3FhDAibBSR2u90NWZpoBjPuWRmH0BAATUlhJU=",
       "url": "_framework/dotnet.runtime.web2r9gqbh.js"
-    },
-    {
-      "hash": "sha256-5n8jzdggtodiEBef297BJ8myGVKWpH1lSoO7PR+dpc4=",
-      "url": "_framework/dotnet.umroi3265v.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -198,7 +198,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-AImJIihNzaNNYa3OKkWMnaQnOTsx4fO+wR6PRvdKu6U=",
+      "hash": "sha256-qDYo7mrKUejDqLkObroBLcyUojZc7A1Q/RpL2YOPJp0=",
       "url": "css/app.css"
     },
     {
@@ -294,7 +294,7 @@ self.assetsManifest = {
       "url": "img/Victory.png"
     },
     {
-      "hash": "sha256-KpxOimg0N6bSDCepf9EFD4GOoanJPEMPn47ttVNHsUw=",
+      "hash": "sha256-xIXjR/ujNORNolqwJdn3UydpDhZcVg/RPRmIWBCVxFY=",
       "url": "index.html"
     },
     {
