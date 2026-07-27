@@ -20,15 +20,14 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 9
+          dotnet-version: 10
 
       - name: Publish .NET Project
         run: dotnet publish -c Release -o release --nologo
 
       - name: Update base href
-        run: sed -i 's/<base href="\/" \/>/<base
-          href="https:\/\/patrickmorrell.github.io\/Regicide\/" \/>/g'
-          release/wwwroot/index.html
+        run: |
+          sed -i 's|<base href="/" />|<base href="/Regicide/" />|g' release/wwwroot/index.html
 
       - name: Add .nojekyll file
         run: touch release/wwwroot/.nojekyll
