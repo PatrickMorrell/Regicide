@@ -1,4 +1,4 @@
-@implements IDisposable
+﻿@implements IDisposable
 @inject CastleService CastleService
 @inject TavernService TavernService
 
@@ -21,23 +21,27 @@
 			</strong>
 		</h5>
 	</div>
-		<div class="d-flex">
-			@foreach (var attack in TavernService.Fight)
-			{
-				<div class="d-flex mx-1">
-					@foreach (var card in attack)
+	<div class="d-flex">
+		@foreach (var attack in TavernService.Fight)
+		{
+			<div class="d-flex ms-1 me-5">
+				<div class="position-relative">
+					<Card PlayingCard="attack[0]"></Card>
+					@for (int i = 1; i < attack.Count; i++)
 					{
-						<div class="mx-1">
+						var card = attack[i];
+						<div style="margin-left: @(i)rem" class="position-absolute translate-middle start-50 top-50">
 							<Card PlayingCard="card"></Card>
 						</div>
 					}
 				</div>
-			}
-		</div>
+			</div>
+		}
+	</div>
 </div>
 
 @code {
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
 		TavernService.Updated += Refresh;
 	}

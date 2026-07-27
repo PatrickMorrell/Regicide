@@ -45,7 +45,7 @@ public class TavernService(StandardService standardService, CastleService castle
 	public void InitializeGame()
 	{
 		Turn = Character.Hero;
-		standardService.StandardDeck.Cards.ShuffleDeck();
+		//standardService.StandardDeck.Cards.ShuffleDeck();
 
 		castleService.BuildCastleDeck();
 		BuildTavernDeck();
@@ -53,6 +53,8 @@ public class TavernService(StandardService standardService, CastleService castle
 
 		Fight = [];
 		DiscardPile.Cards = [];
+
+		Updated?.Invoke();
 	}
 
 	public void RedrawHand()

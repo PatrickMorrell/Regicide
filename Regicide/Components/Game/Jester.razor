@@ -20,7 +20,7 @@
 		AutoReset = false // Fire only once
 	};
 
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
 		_hitTimer.Elapsed += (_, _) =>
 		{

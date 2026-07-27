@@ -1,4 +1,5 @@
 ﻿@page "/"
+@implements IDisposable
 @inject StandardService StandardService
 @inject CastleService CastleService
 @inject TavernService TavernService
@@ -16,5 +17,16 @@ else
 	{
 		StandardService.BuildStandardDeck();
 		TavernService.InitializeGame();
+		TavernService.Updated += Refresh;
+	}
+
+	private void Refresh()
+	{
+		StateHasChanged();
+	}
+
+	public void Dispose()
+	{
+		TavernService.Updated -= Refresh;
 	}
 }

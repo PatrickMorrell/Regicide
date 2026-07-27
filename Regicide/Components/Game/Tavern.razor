@@ -37,7 +37,7 @@
 </div>
 
 @code {
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
 		TavernService.Updated += Refresh;
 	}
